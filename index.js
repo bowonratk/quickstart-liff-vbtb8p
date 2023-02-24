@@ -25,11 +25,7 @@ const code = document.getElementById("code")
 const friendShip = document.getElementById("friendShip")
 
 async function main() {
-  // Initialize LIFF app)
   await liff.init({ liffId: "1660657007-yQRAr96e" })
-  // Try a LIFF function
-async function main() {
-  }
   async function getUserProfile() {
     const profile = await liff.getProfile()
     pictureUrl.src = profile.pictureUrl
@@ -39,4 +35,9 @@ async function main() {
   }
   // ...
   getUserProfile()
+  // ...
+  if (!liff.isInClient()) {
+    btnLogIn.style.display = "block"
+    btnLogOut.style.display = "block"
   }
+}
